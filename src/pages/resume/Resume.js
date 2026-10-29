@@ -6,10 +6,10 @@ import "./Resume.css";
 import myResumePdf from "../../assets/docs/Mithilesh_Kumar_Resume.pdf";
 import { Document, Page, pdfjs } from "react-pdf";
 import Button from "../../components/button/Button";
-import { greeting } from "../../portfolio";
 import TopButton from "../../components/topButton/TopButton";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+// Use standard CDN worker fallback
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version || "2.12.313"}/build/pdf.worker.min.js`;
 
 export default class ResumePage extends Component {
   constructor(props) {
@@ -20,6 +20,7 @@ export default class ResumePage extends Component {
       currentPage: 1,
       isLoading: true,
       error: null,
+      useIframeFallback: false,
     };
   }
 
@@ -41,7 +42,7 @@ export default class ResumePage extends Component {
     } else if (width > 768) {
       pageWidth = 700;
     } else {
-      pageWidth = width * 0.9;
+      pageWidth = width * 0.92;
     }
 
     this.setState({ pageWidth });
@@ -52,14 +53,16 @@ export default class ResumePage extends Component {
       numPages,
       isLoading: false,
       error: null,
+      useIframeFallback: false,
     });
   };
 
   onDocumentLoadError = (error) => {
-    console.error("Error loading PDF:", error);
+    console.warn("React-PDF worker notice, switching to native PDF viewer:", error);
     this.setState({
-      error: "Failed to load resume. Please try again later.",
+      useIframeFallback: true,
       isLoading: false,
+      error: null,
     });
   };
 
@@ -77,7 +80,7 @@ export default class ResumePage extends Component {
 
   render() {
     const theme = this.props.theme;
-    const { pageWidth, numPages, currentPage, isLoading, error } = this.state;
+    const { pageWidth, numPages, currentPage, isLoading, useIframeFallback } = this.state;
 
     return (
       <div className="resume-main">
@@ -86,109 +89,96 @@ export default class ResumePage extends Component {
           <Fade bottom duration={2000} distance="40px">
             <div>
               {/* Download Button */}
-              <div className="download-btn">
+              <div className="download-btn" style={{ display: "flex", gap: "15px", justifyContent: "center", flexWrap: "wrap", marginBottom: "25px" }}>
                 <Button
-                  text="📃 Download Resume"
+                  text="📥 Download Resume (PDF)"
                   newTab={true}
-                  href={greeting.resumeLink}
+                  href={myResumePdf}
+                  theme={theme}
+                />
+                <Button
+                  text="🔗 Open Fullscreen"
+                  newTab={true}
+                  href={myResumePdf}
                   theme={theme}
                 />
               </div>
 
-              {/* Loading State */}
-              {isLoading && !error && (
-                <div className="resume-loading">
-                  <div className="loading-spinner"></div>
-                  <p>Loading resume...</p>
-                </div>
-              )}
-
-              {/* Error State */}
-              {error && (
-                <div className="resume-error">
-                  <svg
-                    className="error-icon"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    width="48"
-                    height="48"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              {/* PDF Document Container */}
+              <div className="resume-page" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                {useIframeFallback ? (
+                  <div style={{ width: "100%", maxWidth: pageWidth || 900, minHeight: "850px", borderRadius: "12px", overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}>
+                    <iframe
+                      src={`${myResumePdf}#toolbar=1&navpanes=0`}
+                      title="Mithilesh Kumar Resume"
+                      width="100%"
+                      height="900px"
+                      style={{ border: "none" }}
                     />
-                  </svg>
-                  <p>{error}</p>
-                  <button
-                    onClick={() => window.location.reload()}
-                    className="retry-btn"
-                    aria-label="Reload resume"
-                  >
-                    Try Again
-                  </button>
-                </div>
-              )}
-
-              {/* PDF Document */}
-              {!error && (
-                <div className="resume-page">
-                  <Document
-                    file={myResumePdf}
-                    onLoadSuccess={this.onDocumentLoadSuccess}
-                    onLoadError={this.onDocumentLoadError}
-                    loading={
+                  </div>
+                ) : (
+                  <>
+                    {isLoading && (
                       <div className="resume-loading">
                         <div className="loading-spinner"></div>
-                        <p>Loading resume...</p>
+                        <p>Loading resume preview...</p>
                       </div>
-                    }
-                  >
-                    {pageWidth && (
-                      <Page
-                        pageNumber={currentPage}
-                        width={pageWidth}
-                        loading={
-                          <div className="page-loading">
-                            <div className="loading-spinner"></div>
-                          </div>
-                        }
-                      />
                     )}
-                  </Document>
+                    <Document
+                      file={myResumePdf}
+                      onLoadSuccess={this.onDocumentLoadSuccess}
+                      onLoadError={this.onDocumentLoadError}
+                      loading={
+                        <div className="resume-loading">
+                          <div className="loading-spinner"></div>
+                          <p>Loading resume preview...</p>
+                        </div>
+                      }
+                    >
+                      {pageWidth && (
+                        <Page
+                          pageNumber={currentPage}
+                          width={pageWidth}
+                          loading={
+                            <div className="page-loading">
+                              <div className="loading-spinner"></div>
+                            </div>
+                          }
+                        />
+                      )}
+                    </Document>
 
-                  {/* Pagination Controls */}
-                  {numPages && numPages > 1 && (
-                    <div className="pagination-controls">
-                      <button
-                        onClick={this.goToPreviousPage}
-                        disabled={currentPage === 1}
-                        className="pagination-btn"
-                        aria-label="Previous page"
-                      >
-                        ← Previous
-                      </button>
-                      <span className="page-info" aria-live="polite">
-                        Page {currentPage} of {numPages}
-                      </span>
-                      <button
-                        onClick={this.goToNextPage}
-                        disabled={currentPage === numPages}
-                        className="pagination-btn"
-                        aria-label="Next page"
-                      >
-                        Next →
-                      </button>
-                    </div>
-                  )}
-                </div>
-              )}
+                    {/* Pagination Controls */}
+                    {numPages && numPages > 1 && (
+                      <div className="pagination-controls" style={{ marginTop: "20px" }}>
+                        <button
+                          onClick={this.goToPreviousPage}
+                          disabled={currentPage === 1}
+                          className="pagination-btn"
+                          aria-label="Previous page"
+                        >
+                          ← Previous
+                        </button>
+                        <span className="page-info" aria-live="polite">
+                          Page {currentPage} of {numPages}
+                        </span>
+                        <button
+                          onClick={this.goToNextPage}
+                          disabled={currentPage === numPages}
+                          className="pagination-btn"
+                          aria-label="Next page"
+                        >
+                          Next →
+                        </button>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
             </div>
           </Fade>
         </div>
-        <Footer theme={theme} onToggle={this.props.onToggle}/>
+        <Footer theme={theme} onToggle={this.props.onToggle} />
         <TopButton theme={theme} />
       </div>
     );

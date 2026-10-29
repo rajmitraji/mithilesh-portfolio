@@ -25,7 +25,7 @@ const greeting = {
   subTitle:
     "Founder & Chief Systems Architect at SSAS | B.Tech Computer Science (KNIT Sultanpur, 8.42 CGPA) | Super 30 Scholar | Dedicated to building resilient, high-density hyperlocal systems, distributed real-time telemetry, and scalable digital solutions for Bharat.",
   resumeLink:
-    "https://mithilesh.netlify.app/resume",
+    process.env.PUBLIC_URL + "/Mithilesh_Kumar_Resume.pdf",
   portfolio_repository: "https://github.com/rajmitraji/masterPortfolio",
   githubProfile: "https://github.com/rajmitraji",
 };
@@ -96,7 +96,7 @@ const skills = {
         },
         {
           skillName: "CSS3",
-          fontAwesomeClassname: "fa-css3",
+          fontAwesomeClassname: "simple-icons:css3",
           style: {
             color: "#1572B6",
           },
@@ -134,7 +134,7 @@ const skills = {
         },
         {
           skillName: "NodeJS",
-          fontAwesomeClassname: "devicon-plain:nodejs-wordmark",
+          fontAwesomeClassname: "simple-icons:nodedotjs",
           style: {
             color: "#339933",
           },
@@ -249,7 +249,7 @@ const skills = {
         },
         {
           skillName: "Python",
-          fontAwesomeClassname: "ion-logo-python",
+          fontAwesomeClassname: "simple-icons:python",
           style: {
             backgroundColor: "transparent",
             color: "#3776AB",
@@ -349,7 +349,7 @@ const degrees = {
     {
       title: "Kamla Nehru Institute of Technology (KNIT Sultanpur)",
       subtitle: "B.Tech. in Computer Science & Engineering",
-      logo_path: "iiitk_logo.png",
+      logo_path: "knit_logo.png",
       alt_name: "KNIT Sultanpur",
       duration: "2021 - 2025",
       descriptions: [
@@ -363,7 +363,7 @@ const degrees = {
     {
       title: "Jawahar Navodaya Vidyalaya (JNV Sonbhadra)",
       subtitle: "Higher Secondary (Class XII) — CBSE Science & Mathematics",
-      logo_path: "iu_logo.png",
+      logo_path: "jnv_logo.png",
       alt_name: "JNV Sonbhadra",
       duration: "2019 - 2020",
       descriptions: [
@@ -382,7 +382,7 @@ const certifications = {
     {
       title: "Super 30 Scholar & National Ranker",
       subtitle: "- Super 30 Fellowship",
-      logo_path: "stanford_logo.png",
+      logo_path: "super30_logo.jpg",
       certificate_link: "https://mithilesh.netlify.app",
       alt_name: "Super 30",
       color_code: "#F59E0B99",
@@ -390,7 +390,7 @@ const certifications = {
     {
       title: "Computer Science Subject Matter Expert",
       subtitle: "- Chegg India (95% Rating)",
-      logo_path: "google_logo.png",
+      logo_path: "chegg_logo.svg",
       certificate_link: "https://www.cheggindia.com",
       alt_name: "Chegg India",
       color_code: "#8B5CF699",
@@ -406,7 +406,7 @@ const certifications = {
     {
       title: "Foundation for Excellence (FFE) Scholar",
       subtitle: "- Merit Mentorship",
-      logo_path: "deeplearning_ai_logo.png",
+      logo_path: "ffe_logo.png",
       certificate_link: "https://ffe.org",
       alt_name: "FFE India",
       color_code: "#10B98199",
@@ -414,7 +414,7 @@ const certifications = {
     {
       title: "Distributed Systems & Socket Architecture",
       subtitle: "- SSAS Engineering",
-      logo_path: "ibm_logo.png",
+      logo_path: "ssas_logo.png",
       certificate_link: "https://ssasapp.netlify.app",
       alt_name: "SSAS Systems",
       color_code: "#06B6D499",
@@ -422,7 +422,7 @@ const certifications = {
     {
       title: "JNVST National Selection Distinction",
       subtitle: "- Ministry of Education",
-      logo_path: "nptel_logo.png",
+      logo_path: "jnv_logo.png",
       certificate_link: "https://navodaya.gov.in",
       alt_name: "JNV",
       color_code: "#EF444499",
@@ -446,7 +446,7 @@ const experience = {
           title: "Founder & Chief Systems Architect",
           company: "SSAS (Single Shop Assured Solution)",
           company_url: "https://ssasapp.netlify.app",
-          logo_path: "tiktok_logo.png",
+          logo_path: "ssas_logo.png",
           duration: "2023 - Present",
           location: "Sonbhadra & Sultanpur, UP, India",
           description:
@@ -457,7 +457,7 @@ const experience = {
           title: "Computer Science Subject Matter Expert (SME)",
           company: "Chegg India",
           company_url: "https://www.cheggindia.com/",
-          logo_path: "legato_logo.png",
+          logo_path: "chegg_logo.svg",
           duration: "2022 - 2024",
           location: "Remote",
           description:
@@ -468,7 +468,7 @@ const experience = {
           title: "Elected Hostel Representative & Tech Team Lead",
           company: "KNIT Sultanpur",
           company_url: "http://knit.ac.in",
-          logo_path: "muffito_logo.png",
+          logo_path: "knit_logo.png",
           duration: "2022 - 2024",
           location: "Sultanpur, UP, India",
           description:
@@ -484,7 +484,7 @@ const experience = {
           title: "Full Stack Systems Intern",
           company: "SSAS Technologies",
           company_url: "https://ssasapp.netlify.app",
-          logo_path: "tiktok_logo.png",
+          logo_path: "ssas_logo.png",
           duration: "June 2023 - Dec 2023",
           location: "India",
           description:
@@ -500,7 +500,7 @@ const experience = {
           title: "Peer Coding Mentor & Algorithm Lead",
           company: "KNIT CSE Club",
           company_url: "http://knit.ac.in",
-          logo_path: "dsc_logo.png",
+          logo_path: "knit_logo.png",
           duration: "2022 - 2024",
           location: "KNIT Sultanpur",
           description:
@@ -511,7 +511,7 @@ const experience = {
           title: "Super 30 Community Mentor",
           company: "Super 30 Scholar Network",
           company_url: "https://super30.org",
-          logo_path: "google_logo.png",
+          logo_path: "super30_logo.jpg",
           duration: "2020 - Present",
           location: "India",
           description:
