@@ -1,0 +1,140 @@
+{
+  "data": [
+    {
+      "id": "ssas-core-monorepo",
+      "name": "SSAS-Monorepo",
+      "createdAt": "2023-08-15T10:00:00Z",
+      "url": "https://github.com/rajmitraji/SSAS-C",
+      "description": "🚀 Single Shop Assured Solution: National 4-pillar operating system uniting Next.js 15 Server Components, real-time Socket.IO telemetry, 25km geodesic dispatch radar, cryptographic warranty escrow, and standalone Android offline bridge.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "TypeScript",
+          "iconifyClass": "logos-typescript-icon"
+        },
+        {
+          "name": "React",
+          "iconifyClass": "logos-react"
+        },
+        {
+          "name": "NodeJS",
+          "iconifyClass": "logos-nodejs-icon"
+        },
+        {
+          "name": "PostgreSQL",
+          "iconifyClass": "logos-postgresql"
+        }
+      ]
+    },
+    {
+      "id": "geodesic-dispatch-radar",
+      "name": "Geodesic-Dispatch-Radar",
+      "createdAt": "2024-01-20T14:30:00Z",
+      "url": "https://github.com/rajmitraji/SSAS-C",
+      "description": "🛰️ 25km Haversine distance-matrix dispatch engine assigning orders to the nearest certified field technicians with real-time Socket.IO room subscriptions and PostGIS geo-hashing clusters.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "TypeScript",
+          "iconifyClass": "logos-typescript-icon"
+        },
+        {
+          "name": "Socket.IO",
+          "iconifyClass": "simple-icons:socketdotio"
+        },
+        {
+          "name": "PostGIS",
+          "iconifyClass": "logos-postgresql"
+        }
+      ]
+    },
+    {
+      "id": "nature-corner-retreat",
+      "name": "Nature-Corner-Retreat",
+      "createdAt": "2023-11-05T09:15:00Z",
+      "url": "https://bank97.netlify.app",
+      "description": "🌿 High-conversion eco-hospitality interface built with React, interactive room reservations, dynamic seasonal pricing, sub-second FCP, and integrated concierge support.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "React",
+          "iconifyClass": "logos-react"
+        },
+        {
+          "name": "JavaScript",
+          "iconifyClass": "logos-javascript"
+        },
+        {
+          "name": "CSS3",
+          "iconifyClass": "logos-css-3"
+        }
+      ]
+    },
+    {
+      "id": "chromium-sandboxed-browser",
+      "name": "Chromium-Sandboxed-Browser",
+      "createdAt": "2024-03-12T16:45:00Z",
+      "url": "https://github.com/rajmitraji/SSAS-C",
+      "description": "🛡️ Secure, lightweight in-app web navigation container built for Android WebView with malicious URL protection, offline bookmark persistence, and hardware back-button synchronization.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "Kotlin",
+          "iconifyClass": "logos-kotlin-icon"
+        },
+        {
+          "name": "Android",
+          "iconifyClass": "logos-android-icon"
+        },
+        {
+          "name": "JavaScript",
+          "iconifyClass": "logos-javascript"
+        }
+      ]
+    },
+    {
+      "id": "bharat-ludo-offline-suite",
+      "name": "Bharat-Ludo-Offline-Suite",
+      "createdAt": "2024-04-18T12:00:00Z",
+      "url": "https://github.com/rajmitraji/SSAS-C",
+      "description": "🎲 Zero-dependency offline board game and utility engine built with pure HTML5 Canvas, smart dice randomness, and local state persistence for low-connectivity rural Android devices.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "JavaScript",
+          "iconifyClass": "logos-javascript"
+        },
+        {
+          "name": "HTML5",
+          "iconifyClass": "logos-html-5"
+        },
+        {
+          "name": "CSS3",
+          "iconifyClass": "logos-css-3"
+        }
+      ]
+    },
+    {
+      "id": "master-portfolio-system",
+      "name": "masterPortfolio",
+      "createdAt": "2024-06-10T11:20:00Z",
+      "url": "https://github.com/rajmitraji/masterPortfolio",
+      "description": "⚡ High-performance personal engineering portfolio showcasing full-stack architecture, academic distinctions (KNIT 8.42 CGPA, Super 30), verified credentials, and production systems.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "React",
+          "iconifyClass": "logos-react"
+        },
+        {
+          "name": "JavaScript",
+          "iconifyClass": "logos-javascript"
+        },
+        {
+          "name": "CSS3",
+          "iconifyClass": "logos-css-3"
+        }
+      ]
+    }
+  ]
+}
